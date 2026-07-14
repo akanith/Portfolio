@@ -1,0 +1,50 @@
+export const recognition = [
+  {
+    id: 1,
+    title: "Reviewer",
+    organization: "MethodsX",
+    year: "2025",
+    type: "editorial",
+    description: "Recognized as a Reviewer.",
+  },
+  {
+    id: 2,
+    title: "Reviewer",
+    organization: "Frontiers in Education",
+    year: "2025",
+    type: "editorial",
+    description: "Recognized as a Reviewer.",
+  },
+  {
+    id: 3,
+    title: "Reviewer",
+    organization: "Journal of Educational Technology Development and Exchange",
+    year: "2024",
+    type: "editorial",
+    description: "Recognized as a Reviewer.",
+  },
+  {
+    id: 4,
+    title: "Reviewer",
+    organization: "Health Education and Behavior",
+    year: "2024",
+    type: "editorial",
+    description: "Recognized as a Reviewer.",
+  },
+  {
+    id: 5,
+    title: "Reviewer",
+    organization: "International Journal of Creative Research Thoughts",
+    year: "2024",
+    type: "editorial",
+    description: "Recognized as a Reviewer.",
+  },
+  {
+    id: 6,
+    title: "Editorial Board Member",
+    organization: "International Journal of Education, Culture and Society",
+    year: "2024",
+    type: "editorial",
+    description: "Recognized as an Editorial Board member.",
+  }
+];

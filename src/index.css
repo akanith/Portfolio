@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-text bg-background antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight text-white;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  ::selection {
+    @apply bg-accentGold/20 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accentGold/20 rounded-none border border-background;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accentGold/40;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  .section-title {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-medium text-white leading-tight;
+  }
+
+  .section-subtitle {
+    @apply font-heading text-lg md:text-xl text-accentGold italic mt-2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-accentGold text-background px-6 py-3 rounded-none font-semibold
+           text-sm tracking-widest uppercase transition-all duration-300 hover:bg-white hover:text-background hover:shadow-glow
+           hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-accentGold active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-cardBg border border-borderGlass text-white px-6 py-3 rounded-none font-semibold
+           text-sm tracking-widest uppercase transition-all duration-300 hover:border-accentGold hover:text-accentGold hover:shadow-glow
+           hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-accentGold active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-accentGold text-accentGold px-6 py-3 rounded-none
+           font-semibold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-accentGold hover:text-background
+           hover:shadow-glow hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-accentGold
+           active:translate-y-0;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center gap-2 bg-accentGold text-background px-6 py-3 rounded-none font-semibold
+           text-sm tracking-widest uppercase transition-all duration-300 hover:bg-white hover:shadow-glow
+           hover:-translate-y-0.5 focus:outline-none focus:ring-1 focus:ring-accentGold active:translate-y-0;
+  }
+
+  .card {
+    @apply bg-cardBg rounded-none shadow-card border border-borderGlass transition-all duration-500
+           hover:shadow-card-hover hover:border-accentGold/40 hover:-translate-y-1;
+  }
+
+  .card-glass {
+    @apply backdrop-blur-md bg-glassBg rounded-none border border-borderGlass shadow-card
+           transition-all duration-500 hover:shadow-card-hover hover:border-accentGold/40 hover:-translate-y-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase px-2.5 py-1 rounded-none;
+  }
+
+  .badge-scopus {
+    @apply badge bg-orange-950/40 text-orange-400 border border-orange-800/30;
+  }
+
+  .badge-wos {
+    @apply badge bg-blue-950/40 text-blue-400 border border-blue-800/30;
+  }
+
+  .badge-sci {
+    @apply badge bg-green-950/40 text-green-400 border border-green-800/30;
+  }
+
+  .badge-esci {
+    @apply badge bg-purple-950/40 text-purple-400 border border-purple-800/30;
+  }
+
+  .divider-accent {
+    @apply w-16 h-[1px] bg-accentGold;
+  }
+
+  .divider-accent-center {
+    @apply w-16 h-[1px] bg-accentGold mx-auto;
+  }
+
+  .gradient-primary {
+    @apply bg-gradient-to-br from-backgroundSecondary to-background;
+  }
+
+  .gradient-secondary {
+    @apply bg-gradient-to-br from-cardBg to-background;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white via-textSecondary to-accentGold bg-clip-text text-transparent;
+  }
+}
+
+
+/* Timeline connector */
+.timeline-connector::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.2), transparent);
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #D4AF37;
+  z-index: 9999;
+  transition: width 0.1s ease;
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
