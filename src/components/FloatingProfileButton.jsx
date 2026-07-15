@@ -110,10 +110,10 @@ export default function FloatingProfileButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute bottom-16 right-0 w-80 bg-white border border-primary/10 overflow-hidden shadow-2xl rounded-none"
+            className="absolute bottom-16 right-0 w-80 bg-black border border-accent/20 overflow-hidden shadow-2xl rounded-none"
           >
             {/* Header */}
-            <div className="bg-primary p-6 relative overflow-hidden">
+            <div className="bg-[#0a0a0a] border-b border-white/5 p-6 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-bl-[100px]" />
               <div className="flex items-center gap-4 mb-4 relative z-10">
                 <div className="w-12 h-12 bg-white/5 border border-white/10 flex items-center justify-center">
@@ -148,22 +148,22 @@ export default function FloatingProfileButton() {
                     target={link.download || link.href.startsWith('mailto') || link.href.startsWith('tel') ? undefined : '_blank'}
                     rel="noopener noreferrer"
                     download={link.download}
-                    className="flex items-center gap-4 p-3 border border-transparent hover:border-primary/10 hover:bg-background transition-all duration-300 group"
+                    className="flex items-center gap-4 p-3 border border-transparent hover:border-accent/10 hover:bg-[#111] transition-all duration-300 group"
                     onClick={() => setIsOpen(false)}
                   >
-                    <div className={`w-10 h-10 bg-white border border-primary/5 flex items-center justify-center text-primary group-hover:text-accent transition-colors duration-300 shrink-0`}>
+                    <div className={`w-10 h-10 bg-[#0a0a0a] border border-white/5 flex items-center justify-center text-white/60 group-hover:text-accent group-hover:border-accent/30 transition-colors duration-300 shrink-0`}>
                       <Icon size={18} strokeWidth={1.5} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="font-heading font-medium text-primary text-sm group-hover:text-accent transition-colors duration-300">{link.label}</p>
+                        <p className="font-heading font-medium text-white/90 text-sm group-hover:text-accent transition-colors duration-300">{link.label}</p>
                         {link.verified && (
                           <span className="text-[10px] bg-accent/10 text-accent px-1.5 py-0.5 font-bold">✓</span>
                         )}
                       </div>
-                      <p className="font-body text-textSecondary text-xs font-light tracking-wide truncate">{link.sublabel}</p>
+                      <p className="font-body text-white/50 text-xs font-light tracking-wide truncate">{link.sublabel}</p>
                     </div>
-                    <FiExternalLink size={14} className="text-primary/20 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
+                    <FiExternalLink size={14} className="text-white/20 group-hover:text-accent group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300 shrink-0" />
                   </a>
                 );
               })}
@@ -179,7 +179,7 @@ export default function FloatingProfileButton() {
         whileTap={{ scale: 0.95 }}
         aria-label="Academic profiles quick access"
         aria-expanded={isOpen}
-        className="relative w-14 h-14 bg-primary flex items-center justify-center text-white hover:bg-accent transition-colors duration-500 rounded-none group"
+        className="relative w-14 h-14 bg-black border border-accent flex items-center justify-center text-white hover:bg-[#111] transition-colors duration-500 rounded-none group"
       >
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
