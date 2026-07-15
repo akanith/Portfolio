@@ -175,27 +175,33 @@ export default function AcademicProfiles() {
           {/* Placeholders Row/Column (ResearchGate, ORCID, LinkedIn) */}
           <div className="flex flex-col gap-6">
             {[
-              { name: "ResearchGate", icon: SiResearchgate },
-              { name: "ORCID", icon: SiOrcid },
-              { name: "LinkedIn", icon: FiLinkedin }
+              { name: "ResearchGate", icon: SiResearchgate, isLocked: true },
+              { name: "ORCID", icon: SiOrcid, isLocked: true },
+              { name: "LinkedIn", icon: FiLinkedin, isLocked: false, href: "https://www.linkedin.com/in/dr-sri-dhivya-501481259/" }
             ].map((p, idx) => {
               const PIcon = p.icon;
+              const Wrapper = p.isLocked ? 'div' : 'a';
               return (
-                <div 
+                <Wrapper 
                   key={p.name}
-                  className="bg-cardBg/60 border border-white/5 p-5 flex items-center justify-between group rounded-none"
+                  {...(p.isLocked ? {} : { href: p.href, target: "_blank", rel: "noopener noreferrer" })}
+                  className={`bg-cardBg/60 border border-white/5 p-5 flex items-center justify-between group rounded-none ${p.isLocked ? '' : 'hover:border-accentGold transition-colors duration-500 cursor-pointer'}`}
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 border border-white/10 flex items-center justify-center text-white/40 group-hover:text-accentGold group-hover:border-accentGold transition-colors duration-500">
+                    <div className={`w-10 h-10 border flex items-center justify-center transition-colors duration-500 ${p.isLocked ? 'border-white/10 text-white/40 group-hover:text-accentGold group-hover:border-accentGold' : 'border-[#D4AF37]/40 text-accentGold group-hover:border-accentGold group-hover:scale-110'}`}>
                       <PIcon size={16} />
                     </div>
                     <div>
-                      <h4 className="font-heading text-sm text-white font-medium leading-none mb-1">{p.name}</h4>
-                      <p className="text-[9px] font-body uppercase text-white/30 tracking-widest">Coming Soon</p>
+                      <h4 className={`font-heading text-sm font-medium leading-none mb-1 transition-colors duration-500 ${p.isLocked ? 'text-white' : 'text-white group-hover:text-accentGold'}`}>{p.name}</h4>
+                      <p className="text-[9px] font-body uppercase text-white/30 tracking-widest">{p.isLocked ? 'Coming Soon' : 'Professional Network'}</p>
                     </div>
                   </div>
-                  <FiLock size={12} className="text-white/20" />
-                </div>
+                  {p.isLocked ? (
+                    <FiLock size={12} className="text-white/20" />
+                  ) : (
+                    <FiExternalLink size={12} className="text-[#D4AF37]/50 group-hover:text-accentGold transition-colors duration-500" />
+                  )}
+                </Wrapper>
               );
             })}
           </div>

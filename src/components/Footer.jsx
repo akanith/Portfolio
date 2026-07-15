@@ -1,137 +1,186 @@
+import { motion } from 'framer-motion';
+import { FiMail, FiMapPin } from 'react-icons/fi';
 
-import { motion, useAnimation } from 'framer-motion';
-import { FiArrowUp, FiMail, FiMapPin, FiLinkedin } from 'react-icons/fi';
-import { SiGooglescholar, SiResearchgate, SiOrcid } from 'react-icons/si';
-import SectionDivider from './SectionDivider';
-import MagneticButton from './MagneticButton';
-
-const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Research', href: '#research' },
-  { label: 'Publications', href: '#publications' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+const academicProfiles = [
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=XAU7i34AAAAJ&hl=en' },
+  { label: 'Scopus', href: 'https://www.scopus.com' },
+  { label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Sri-Dhivya-D' },
+  { label: 'ORCID', href: 'https://orcid.org' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/dr-sri-dhivya-501481259/' },
+  { label: 'Download CV', href: '/cv.pdf' },
 ];
 
-const socials = [
-  { icon: FiLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/dr-sri-dhivya-501481259/' },
-  { icon: SiGooglescholar, label: 'Google Scholar', href: 'https://scholar.google.com' },
-  { icon: SiResearchgate, label: 'ResearchGate', href: 'https://researchgate.net' },
-  { icon: SiOrcid, label: 'ORCID', href: 'https://orcid.org' },
+const researchKeywords = [
+  'ESP',
+  'Education 4.0',
+  'Technology Enhanced Learning',
+  'Gamification',
+  'Professional Communication',
+  'Educational Sustainability',
+  'Corpus Linguistics',
 ];
+
+const Particles = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.03),transparent_70%)]" />
+      {[...Array(30)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 bg-[#D4AF37]/30 rounded-full blur-[1px]"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+          }}
+          animate={{
+            y: [0, -40, 0],
+            opacity: [0, 0.6, 0],
+            scale: [0.8, 1.2, 0.8],
+          }}
+          transition={{
+            duration: 4 + Math.random() * 6,
+            repeat: Infinity,
+            ease: 'easeInOut',
+            delay: Math.random() * 5,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default function Footer() {
-  const controls = useAnimation();
-
-  const scrollToTop = async () => {
-    await controls.start({ y: -100, opacity: 0, transition: { duration: 0.5, ease: "easeIn" } });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    controls.set({ y: 100, opacity: 0 });
-    controls.start({ y: 0, opacity: 1, transition: { duration: 0.5, delay: 0.5 } });
-  };
-
   return (
-    <footer className="relative bg-background text-white border-t border-white/5">
-      <SectionDivider />
-      <div className="container-custom pt-8 pb-8">
-        <div className="grid md:grid-cols-3 gap-10 mb-12">
-          {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-9 h-9 rounded-none bg-accentGold/20 border border-accentGold/30 flex items-center justify-center">
-                <span className="text-accentGold font-heading font-bold text-sm">SD</span>
-              </div>
-              <div>
-                <p className="font-heading font-bold text-white text-sm">Dr. D. Sri Dhivya</p>
-                <p className="text-white/50 text-xs">Assistant Professor</p>
-              </div>
-            </div>
-            <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Advancing knowledge at the intersection of language education, technology, and pedagogical innovation. CS Academy of Higher Education, Coimbatore.
-            </p>
-            <div className="flex items-center gap-2 text-white/50 text-xs mb-2">
-              <FiMail size={12} />
-              <span>sridhivya@csacademy.edu.in</span>
-            </div>
-            <div className="flex items-center gap-2 text-white/50 text-xs">
-              <FiMapPin size={12} />
-              <span>Coimbatore, Tamil Nadu, India</span>
-            </div>
-          </div>
+    <footer 
+      className="relative text-white pt-32 pb-12 overflow-hidden border-t border-white/5"
+      style={{
+        background: 'linear-gradient(180deg, #050505 0%, #081320 60%, #0B1220 100%)'
+      }}
+    >
+      {/* Subtle Constellation & Particles */}
+      <Particles />
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-heading font-semibold text-white/80 text-sm mb-4 tracking-wide uppercase">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/50 hover:text-accentGold text-sm transition-colors duration-200 flex items-center gap-2 group"
-                  >
-                    <span className="w-3 h-px bg-white/20 group-hover:bg-accentGold group-hover:w-4 transition-all" />
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Radial glow behind the heading */}
+      <div 
+        className="absolute top-32 left-1/2 -translate-x-1/2 w-[800px] h-[400px] pointer-events-none opacity-30"
+        style={{
+          background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.15) 0%, transparent 60%)'
+        }}
+      />
 
-          {/* Research Areas */}
-          <div>
-            <h4 className="font-heading font-semibold text-white/80 text-sm mb-4 tracking-wide uppercase">Research Focus</h4>
-            <div className="flex flex-wrap gap-2">
-              {['ESP', 'Education 4.0', 'TEL', 'Gamification', 'Prof. Communication', 'Sustainability', 'Corpus Linguistics'].map((tag) => (
-                <span key={tag} className="text-xs px-2.5 py-1 rounded-none bg-white/5 border border-white/10 text-white/60 hover:bg-white/10 hover:text-white transition-colors cursor-default">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-            <h4 className="font-heading font-semibold text-white/80 text-sm mt-6 mb-3 tracking-wide uppercase">Academic Profiles</h4>
-            <div className="flex gap-3">
-              {socials.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="w-9 h-9 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-accentGold hover:bg-white/10 hover:border-accentGold/30 transition-all duration-300"
-                  >
-                    <Icon size={16} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-white/40 text-xs text-center sm:text-left">
-            © {new Date().getFullYear()} Dr. D. Sri Dhivya. All rights reserved. · CS Academy of Higher Education, Coimbatore.
+      <div className="container-custom relative z-10 flex flex-col items-center text-center">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 relative"
+        >
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-medium tracking-wide mb-4">
+            Dr. D. Sri Dhivya
+          </h2>
+          <p className="text-[#D4AF37] font-body text-sm md:text-base tracking-[0.25em] uppercase mb-10">
+            Assistant Professor
           </p>
-          <MagneticButton cursorText="Top">
-            <button
-              onClick={scrollToTop}
-              aria-label="Scroll to top"
-              className="w-12 h-12 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-accentGold hover:bg-white/10 hover:border-accentGold/30 transition-all duration-300 overflow-hidden"
-            >
-              <motion.div animate={controls}>
-                <motion.div
-                  animate={{ y: [0, -3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <FiArrowUp size={20} />
-                </motion.div>
-              </motion.div>
-            </button>
-          </MagneticButton>
-        </div>
+          <p className="font-heading text-xl md:text-2xl text-white/80 italic font-light max-w-3xl mx-auto leading-relaxed">
+            "Advancing knowledge through research, education, innovation, and global collaboration."
+          </p>
+        </motion.div>
+
+        {/* Academic Profiles */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="flex flex-wrap justify-center items-center gap-y-4 mb-20"
+        >
+          {academicProfiles.map((profile, idx) => (
+            <div key={profile.label} className="flex items-center">
+              <a
+                href={profile.href}
+                target={profile.label === 'Download CV' ? undefined : "_blank"}
+                rel="noopener noreferrer"
+                className="group relative px-5 py-2 font-body text-[13px] uppercase tracking-widest text-white/50 hover:text-white transition-colors duration-500"
+              >
+                {profile.label}
+                <motion.div 
+                  className="absolute bottom-1 left-1/2 -translate-x-1/2 h-[1px] bg-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,1)]"
+                  initial={{ width: 0, opacity: 0 }}
+                  whileHover={{ width: '40%', opacity: 1 }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
+                />
+              </a>
+              {idx < academicProfiles.length - 1 && (
+                <span className="text-white/10 mx-1 md:mx-3 select-none text-xl font-light">|</span>
+              )}
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Research Keywords */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-20 max-w-4xl"
+        >
+          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-4">
+            {researchKeywords.map((keyword, idx) => (
+              <div key={keyword} className="flex items-center gap-4">
+                <span className="font-body text-[15px] text-white/40 hover:text-[#D4AF37] transition-colors duration-500 cursor-default">
+                  {keyword}
+                </span>
+                {idx < researchKeywords.length - 1 && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/10" />
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Contact */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-10 mb-28"
+        >
+          <a href="mailto:sridhivya@csacademy.edu.in" className="flex items-center gap-3 text-white/40 hover:text-[#D4AF37] transition-colors duration-500 group">
+            <FiMail size={18} className="group-hover:scale-110 transition-transform duration-500" />
+            <span className="font-body text-sm tracking-widest uppercase">sridhivya@csacademy.edu.in</span>
+          </a>
+          <div className="hidden sm:block w-px h-6 bg-white/10" />
+          <div className="flex items-center gap-3 text-white/40 cursor-default hover:text-white transition-colors duration-500">
+            <FiMapPin size={18} />
+            <span className="font-body text-sm tracking-widest uppercase">Coimbatore, Tamil Nadu, India</span>
+          </div>
+        </motion.div>
+
+        {/* Bottom */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="w-full flex flex-col items-center"
+        >
+          <div className="w-full max-w-6xl h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/40 to-transparent mb-8" />
+          
+          <div className="w-full max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-6 px-4">
+            <p className="font-body text-[11px] text-white/30 tracking-widest uppercase">
+              © {new Date().getFullYear()} Dr. D. Sri Dhivya. All rights reserved.
+            </p>
+            <p className="font-body text-[11px] text-white/30 tracking-widest uppercase flex items-center gap-2">
+              Designed with Elegance
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]/50" />
+            </p>
+          </div>
+        </motion.div>
+
       </div>
     </footer>
   );
