@@ -71,7 +71,7 @@ export default function About() {
               <img
                 src={profileImg}
                 alt="Dr. D. Sri Dhivya"
-                className="w-full h-full object-cover object-top filter grayscale contrast-125 saturate-[0.8] brightness-90 hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover object-[50%_15%] scale-125 hover:scale-[1.3] transition-transform duration-700"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
