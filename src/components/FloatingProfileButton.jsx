@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiX, FiMail, FiPhone, FiDownload, FiChevronUp, FiExternalLink, FiLinkedin } from 'react-icons/fi';
+import { FiX, FiMail, FiPhone, FiDownload, FiChevronUp, FiExternalLink, FiLinkedin, FiDatabase } from 'react-icons/fi';
 import { SiGooglescholar, SiResearchgate, SiOrcid } from 'react-icons/si';
 
 const quickLinks = [
@@ -12,6 +12,16 @@ const quickLinks = [
     color: 'text-blue-600 dark:text-blue-400',
     bg: 'bg-blue-50 dark:bg-blue-900/30',
     border: 'border-blue-200 dark:border-blue-800',
+    verified: true,
+  },
+  {
+    icon: FiDatabase,
+    label: 'Scopus',
+    sublabel: '70 Citations · h-index 4',
+    href: 'https://www.scopus.com/authid/detail.uri?authorId=58124404000',
+    color: 'text-orange-500',
+    bg: 'bg-orange-50 dark:bg-orange-900/30',
+    border: 'border-orange-200 dark:border-orange-800',
     verified: true,
   },
   {
@@ -28,7 +38,7 @@ const quickLinks = [
     icon: SiResearchgate,
     label: 'ResearchGate',
     sublabel: '10 Publications',
-    href: 'https://www.researchgate.net/profile/Sri-Dhivya-D',
+    href: 'https://www.researchgate.net/profile/Sri-Dhivya?ev=hdr_xprf',
     color: 'text-teal-600 dark:text-teal-400',
     bg: 'bg-teal-50 dark:bg-teal-900/30',
     border: 'border-teal-200 dark:border-teal-800',
@@ -38,7 +48,7 @@ const quickLinks = [
     icon: SiOrcid,
     label: 'ORCID',
     sublabel: 'Researcher ID',
-    href: 'https://orcid.org',
+    href: 'https://orcid.org/0000-0003-0277-1629',
     color: 'text-green-600 dark:text-green-400',
     bg: 'bg-green-50 dark:bg-green-900/30',
     border: 'border-green-200 dark:border-green-800',

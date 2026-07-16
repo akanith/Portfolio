@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiBookOpen, FiTarget, FiHeart, FiStar } from 'react-icons/fi';
-import profileImg from '../assets/images/profile.jpg';
+import profileImg from '../assets/images/profile.png';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },

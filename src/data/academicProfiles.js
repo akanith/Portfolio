@@ -20,8 +20,8 @@ export const academicProfiles = [
   {
     id: 'scopus',
     platform: 'Scopus',
-    url: 'https://www.scopus.com/authid/detail.uri?authorId=XXXXXXXXX',
-    available: false,
+    url: 'https://www.scopus.com/authid/detail.uri?authorId=58124404000',
+    available: true,
     stats: {
       citations: 70,
       hIndex: 4,
@@ -37,8 +37,8 @@ export const academicProfiles = [
   {
     id: 'orcid',
     platform: 'ORCID',
-    url: 'https://orcid.org/0000-0000-0000-0000',
-    available: false,
+    url: 'https://orcid.org/0000-0003-0277-1629',
+    available: true,
     stats: null,
     color: '#A6CE39',
     bgColor: 'bg-green-50 dark:bg-green-950/30',
@@ -50,8 +50,8 @@ export const academicProfiles = [
   {
     id: 'researchgate',
     platform: 'ResearchGate',
-    url: 'https://www.researchgate.net/profile/Sri-Dhivya-D',
-    available: false,
+    url: 'https://www.researchgate.net/profile/Sri-Dhivya?ev=hdr_xprf',
+    available: true,
     stats: null,
     color: '#00CCBB',
     bgColor: 'bg-teal-50 dark:bg-teal-950/30',

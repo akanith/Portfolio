@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiDownload, FiArrowRight } from 'react-icons/fi';
 import { SiGooglescholar } from 'react-icons/si';
-import profileImg from '../assets/images/profile.jpg';
+import profileImg from '../assets/images/profile.png';
 import MagneticButton from './MagneticButton';
 import HeroSphere from './HeroSphere';
 

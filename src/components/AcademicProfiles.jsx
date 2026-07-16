@@ -66,10 +66,13 @@ export default function AcademicProfiles() {
           {/* Google Scholar Card — Spans 2 columns on desktop */}
           <div className="col-span-1 md:col-span-2">
             <TiltCard>
-              <div 
+              <a 
+                href="https://scholar.google.com/citations?user=XAU7i34AAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={() => setHoveredIndex(0)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="relative h-full bg-cardBg/80 backdrop-blur-md border border-[#D4AF37]/20 p-8 md:p-10 flex flex-col justify-between rounded-none shadow-[0_15px_30px_rgba(0,0,0,0.50)] transition-all duration-500 hover:border-accentGold hover:shadow-card-hover group"
+                className="block relative h-full bg-cardBg/80 backdrop-blur-md border border-[#D4AF37]/20 p-8 md:p-10 flex flex-col justify-between rounded-none shadow-[0_15px_30px_rgba(0,0,0,0.50)] transition-all duration-500 hover:border-accentGold hover:shadow-card-hover group"
               >
                 {/* Spotlight follower effect simulation */}
                 <div className="absolute inset-0 bg-[#D4AF37]/[0.015] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -111,25 +114,25 @@ export default function AcademicProfiles() {
                   </div>
                 </div>
 
-                <a 
-                  href="https://scholar.google.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <div 
                   className="w-full inline-flex items-center justify-center gap-2 bg-[#D4AF37] text-background py-3.5 px-6 font-body text-xs tracking-widest uppercase hover:bg-white transition-colors duration-500"
                 >
                   View Google Scholar Profile
                   <FiExternalLink size={12} />
-                </a>
-              </div>
+                </div>
+              </a>
             </TiltCard>
           </div>
 
           {/* Scopus Card */}
           <TiltCard>
-            <div 
+            <a 
+              href="https://www.scopus.com/authid/detail.uri?authorId=58124404000"
+              target="_blank"
+              rel="noopener noreferrer"
               onMouseEnter={() => setHoveredIndex(1)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="relative h-full bg-cardBg/80 backdrop-blur-md border border-[#D4AF37]/20 p-8 md:p-10 flex flex-col justify-between rounded-none shadow-[0_15px_30px_rgba(0,0,0,0.50)] transition-all duration-500 hover:border-accentGold hover:shadow-card-hover group"
+              className="block relative h-full bg-cardBg/80 backdrop-blur-md border border-[#D4AF37]/20 p-8 md:p-10 flex flex-col justify-between rounded-none shadow-[0_15px_30px_rgba(0,0,0,0.50)] transition-all duration-500 hover:border-accentGold hover:shadow-card-hover group"
             >
               <div className="absolute inset-0 w-[200%] -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/[0.03] to-transparent skew-x-12 transition-transform duration-1000 ease-out pointer-events-none" />
 
@@ -160,23 +163,20 @@ export default function AcademicProfiles() {
                 </div>
               </div>
 
-              <a 
-                href="https://www.scopus.com"
-                target="_blank"
-                rel="noopener noreferrer"
+              <div 
                 className="w-full inline-flex items-center justify-center gap-2 bg-transparent border border-[#D4AF37]/40 hover:border-white text-white py-3.5 px-6 font-body text-xs tracking-widest uppercase transition-colors duration-500"
               >
                 View Scopus Profile
                 <FiExternalLink size={12} />
-              </a>
-            </div>
+              </div>
+            </a>
           </TiltCard>
 
           {/* Placeholders Row/Column (ResearchGate, ORCID, LinkedIn) */}
           <div className="flex flex-col gap-6">
             {[
-              { name: "ResearchGate", icon: SiResearchgate, isLocked: true },
-              { name: "ORCID", icon: SiOrcid, isLocked: true },
+              { name: "ResearchGate", icon: SiResearchgate, isLocked: false, href: "https://www.researchgate.net/profile/Sri-Dhivya?ev=hdr_xprf" },
+              { name: "ORCID", icon: SiOrcid, isLocked: false, href: "https://orcid.org/0000-0003-0277-1629" },
               { name: "LinkedIn", icon: FiLinkedin, isLocked: false, href: "https://www.linkedin.com/in/dr-sri-dhivya-501481259/" }
             ].map((p, idx) => {
               const PIcon = p.icon;
